@@ -17,174 +17,243 @@
 <body>
     <div class="app-container">
         
-        <!-- Header -->
-        <header class="app-header">
-            <div class="header-left">
-                <div class="profile-pic">
-                    <img src="https://ui-avatars.com/api/?name=User&background=ffffff&color=5f259f&rounded=true" alt="Profile">
+        <!-- Splash Screen -->
+        <div id="splash-screen" class="splash-screen">
+            <div class="splash-logo">
+                <h1>ATL</h1>
+            </div>
+            <div class="splash-loader"></div>
+        </div>
+
+        <!-- ======================= HOME SCREEN ======================= -->
+        <div id="home" class="screen active">
+            <!-- Header -->
+            <header class="app-header">
+                <div class="header-left">
+                    <div class="profile-pic">
+                        <img src="https://ui-avatars.com/api/?name=User&background=ffffff&color=5f259f&rounded=true" alt="Profile">
+                    </div>
+                    <div class="location-info">
+                        <span class="home-text">Home <i class="fa-solid fa-chevron-down"></i></span>
+                        <span class="address-text">123, Main Street, City...</span>
+                    </div>
                 </div>
-                <div class="location-info">
-                    <span class="home-text">Home <i class="fa-solid fa-chevron-down"></i></span>
-                    <span class="address-text">123, Main Street, City...</span>
+                <div class="header-right">
+                    <button class="icon-btn"><i class="fa-solid fa-qrcode"></i></button>
+                    <button class="icon-btn"><i class="fa-regular fa-bell"></i><span class="badge"></span></button>
+                    <button class="icon-btn"><i class="fa-regular fa-circle-question"></i></button>
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <main class="app-main">
+                <!-- Promo Carousel -->
+                <section class="promo-carousel">
+                    <div class="carousel-track">
+                        <div class="carousel-slide" style="background: linear-gradient(135deg, #FF9A9E 0%, #FECFEF 99%, #FECFEF 100%);">
+                            <div class="slide-content">
+                                <h3>Get 50% Cashback</h3>
+                                <p>On your first electricity bill</p>
+                                <button class="slide-btn">Pay Now</button>
+                            </div>
+                        </div>
+                        <div class="carousel-slide" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);">
+                            <div class="slide-content">
+                                <h3>Refer & Earn</h3>
+                                <p>Get ₹100 for every friend</p>
+                                <button class="slide-btn">Invite</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-indicators">
+                        <span class="indicator active"></span>
+                        <span class="indicator"></span>
+                    </div>
+                </section>
+
+                <!-- Money Transfers -->
+                <section class="action-section">
+                    <h2 class="section-title">Transfer Money</h2>
+                    <div class="action-grid">
+                        <div class="action-item ripple" id="btn-to-mobile">
+                            <div class="action-icon" style="background-color: #673ab7; color: white;">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <span>To Mobile Number</span>
+                        </div>
+                        <div class="action-item ripple">
+                            <div class="action-icon" style="background-color: #673ab7; color: white;">
+                                <i class="fa-solid fa-building-columns"></i>
+                            </div>
+                            <span>To Bank/UPI ID</span>
+                        </div>
+                        <div class="action-item ripple">
+                            <div class="action-icon" style="background-color: #673ab7; color: white;">
+                                <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                            </div>
+                            <span>To Self Account</span>
+                        </div>
+                        <div class="action-item ripple">
+                            <div class="action-icon" style="background-color: #673ab7; color: white;">
+                                <i class="fa-solid fa-building-columns"></i>
+                                <i class="fa-solid fa-magnifying-glass" style="font-size: 0.5rem; position: absolute; bottom: 8px; right: 8px;"></i>
+                            </div>
+                            <span>Check Balance</span>
+                        </div>
+                    </div>
+                    <div class="upi-id-bar">
+                        <span>My UPI ID: <strong>9876543210@atl</strong></span>
+                        <i class="fa-regular fa-copy"></i>
+                    </div>
+                </section>
+
+                <!-- Quick Links -->
+                <section class="action-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Recharge & Pay Bills</h2>
+                        <button class="view-all-btn">View All</button>
+                    </div>
+                    <div class="action-grid">
+                        <div class="action-item ripple">
+                            <div class="action-icon text-purple">
+                                <i class="fa-solid fa-mobile-screen-button"></i>
+                            </div>
+                            <span>Mobile Recharge</span>
+                        </div>
+                        <div class="action-item ripple">
+                            <div class="action-icon text-purple">
+                                <i class="fa-solid fa-satellite-dish"></i>
+                            </div>
+                            <span>DTH</span>
+                        </div>
+                        <div class="action-item ripple">
+                            <div class="action-icon text-purple">
+                                <i class="fa-solid fa-lightbulb"></i>
+                            </div>
+                            <span>Electricity</span>
+                        </div>
+                        <div class="action-item ripple">
+                            <div class="action-icon text-purple">
+                                <i class="fa-solid fa-credit-card"></i>
+                            </div>
+                            <span>Credit Card</span>
+                        </div>
+                    </div>
+                </section>
+                
+                <div style="height: 80px;"></div>
+            </main>
+        </div>
+
+        <!-- ======================= STORES SCREEN ======================= -->
+        <div id="stores" class="screen">
+            <header class="app-header">
+                <h2>Nearby Stores</h2>
+                <div class="header-right">
+                    <button class="icon-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </header>
+            <main class="app-main p-16">
+                <div class="search-bar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search for stores...">
+                </div>
+                <h3 class="mt-16 mb-8">Popular Categories</h3>
+                <div class="action-grid mb-16">
+                    <div class="action-item"><div class="action-icon text-blue"><i class="fa-solid fa-basket-shopping"></i></div><span>Grocery</span></div>
+                    <div class="action-item"><div class="action-icon text-blue"><i class="fa-solid fa-burger"></i></div><span>Food</span></div>
+                    <div class="action-item"><div class="action-icon text-blue"><i class="fa-solid fa-pills"></i></div><span>Pharmacy</span></div>
+                    <div class="action-item"><div class="action-icon text-blue"><i class="fa-solid fa-scissors"></i></div><span>Salon</span></div>
+                </div>
+                <div style="height: 80px;"></div>
+            </main>
+        </div>
+
+        <!-- ======================= HISTORY SCREEN ======================= -->
+        <div id="history" class="screen">
+            <header class="app-header">
+                <h2>History</h2>
+                <div class="header-right">
+                    <button class="icon-btn"><i class="fa-solid fa-filter"></i></button>
+                </div>
+            </header>
+            <main class="app-main">
+                <div class="history-list">
+                    <div class="history-item">
+                        <div class="h-icon bg-green"><i class="fa-solid fa-arrow-down"></i></div>
+                        <div class="h-details">
+                            <h4>Received from Rahul</h4>
+                            <p>Today, 10:45 AM</p>
+                        </div>
+                        <div class="h-amount text-green">+ ₹500</div>
+                    </div>
+                    <div class="history-item">
+                        <div class="h-icon bg-red"><i class="fa-solid fa-arrow-up"></i></div>
+                        <div class="h-details">
+                            <h4>Paid to Swiggy</h4>
+                            <p>Yesterday, 8:30 PM</p>
+                        </div>
+                        <div class="h-amount">- ₹350</div>
+                    </div>
+                    <div class="history-item">
+                        <div class="h-icon bg-blue"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                        <div class="h-details">
+                            <h4>Jio Prepaid Recharge</h4>
+                            <p>Mon, 12:00 PM</p>
+                        </div>
+                        <div class="h-amount">- ₹299</div>
+                    </div>
+                </div>
+                <div style="height: 80px;"></div>
+            </main>
+        </div>
+
+        <!-- ======================= PAYMENT MODAL ======================= -->
+        <div id="payment-modal" class="modal-overlay">
+            <div class="modal-content slide-up">
+                <div class="modal-header">
+                    <h3>Send Money</h3>
+                    <i class="fa-solid fa-xmark close-modal"></i>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <label>Enter Mobile Number</label>
+                        <input type="tel" id="payee-number" placeholder="10-digit mobile number">
+                    </div>
+                    <div class="input-group">
+                        <label>Amount (₹)</label>
+                        <input type="number" id="pay-amount" placeholder="0">
+                    </div>
+                    <button class="primary-btn" id="pay-btn">Pay Now</button>
+                </div>
+                <div class="success-screen hidden" id="success-screen">
+                    <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                    <h2>Payment Successful!</h2>
+                    <p>₹<span id="success-amount">0</span> sent successfully.</p>
+                    <button class="secondary-btn close-modal" style="margin-top:20px;">Done</button>
                 </div>
             </div>
-            <div class="header-right">
-                <button class="icon-btn"><i class="fa-solid fa-qrcode"></i></button>
-                <button class="icon-btn"><i class="fa-regular fa-bell"></i><span class="badge"></span></button>
-                <button class="icon-btn"><i class="fa-regular fa-circle-question"></i></button>
-            </div>
-        </header>
-
-        <!-- Main Content -->
-        <main class="app-main">
-            <!-- Promo Carousel -->
-            <section class="promo-carousel">
-                <div class="carousel-track">
-                    <div class="carousel-slide" style="background: linear-gradient(135deg, #FF9A9E 0%, #FECFEF 99%, #FECFEF 100%);">
-                        <div class="slide-content">
-                            <h3>Get 50% Cashback</h3>
-                            <p>On your first electricity bill</p>
-                            <button class="slide-btn">Pay Now</button>
-                        </div>
-                    </div>
-                    <div class="carousel-slide" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);">
-                        <div class="slide-content">
-                            <h3>Refer & Earn</h3>
-                            <p>Get ₹100 for every friend</p>
-                            <button class="slide-btn">Invite</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-indicators">
-                    <span class="indicator active"></span>
-                    <span class="indicator"></span>
-                </div>
-            </section>
-
-            <!-- Money Transfers -->
-            <section class="action-section">
-                <h2 class="section-title">Transfer Money</h2>
-                <div class="action-grid">
-                    <div class="action-item ripple">
-                        <div class="action-icon" style="background-color: #673ab7; color: white;">
-                            <i class="fa-solid fa-user"></i>
-                        </div>
-                        <span>To Mobile Number</span>
-                    </div>
-                    <div class="action-item ripple">
-                        <div class="action-icon" style="background-color: #673ab7; color: white;">
-                            <i class="fa-solid fa-building-columns"></i>
-                        </div>
-                        <span>To Bank/UPI ID</span>
-                    </div>
-                    <div class="action-item ripple">
-                        <div class="action-icon" style="background-color: #673ab7; color: white;">
-                            <i class="fa-solid fa-arrow-right-arrow-left"></i>
-                        </div>
-                        <span>To Self Account</span>
-                    </div>
-                    <div class="action-item ripple">
-                        <div class="action-icon" style="background-color: #673ab7; color: white;">
-                            <i class="fa-solid fa-building-columns"></i>
-                            <i class="fa-solid fa-magnifying-glass" style="font-size: 0.5rem; position: absolute; bottom: 8px; right: 8px;"></i>
-                        </div>
-                        <span>Check Balance</span>
-                    </div>
-                </div>
-                <div class="upi-id-bar">
-                    <span>My UPI ID: <strong>9876543210@atl</strong></span>
-                    <i class="fa-regular fa-copy"></i>
-                </div>
-            </section>
-
-            <!-- Quick Links -->
-            <section class="action-section">
-                <div class="section-header">
-                    <h2 class="section-title">Recharge & Pay Bills</h2>
-                    <button class="view-all-btn">View All</button>
-                </div>
-                <div class="action-grid">
-                    <div class="action-item ripple">
-                        <div class="action-icon text-purple">
-                            <i class="fa-solid fa-mobile-screen-button"></i>
-                        </div>
-                        <span>Mobile Recharge</span>
-                    </div>
-                    <div class="action-item ripple">
-                        <div class="action-icon text-purple">
-                            <i class="fa-solid fa-satellite-dish"></i>
-                        </div>
-                        <span>DTH</span>
-                    </div>
-                    <div class="action-item ripple">
-                        <div class="action-icon text-purple">
-                            <i class="fa-solid fa-lightbulb"></i>
-                        </div>
-                        <span>Electricity</span>
-                    </div>
-                    <div class="action-item ripple">
-                        <div class="action-icon text-purple">
-                            <i class="fa-solid fa-credit-card"></i>
-                        </div>
-                        <span>Credit Card</span>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Insurance -->
-            <section class="action-section">
-                <h2 class="section-title">Insurance</h2>
-                <div class="action-grid">
-                    <div class="action-item ripple">
-                        <div class="action-icon text-blue">
-                            <i class="fa-solid fa-motorcycle"></i>
-                        </div>
-                        <span>Bike</span>
-                    </div>
-                    <div class="action-item ripple">
-                        <div class="action-icon text-blue">
-                            <i class="fa-solid fa-car"></i>
-                        </div>
-                        <span>Car</span>
-                    </div>
-                    <div class="action-item ripple">
-                        <div class="action-icon text-blue">
-                            <i class="fa-solid fa-heart-pulse"></i>
-                        </div>
-                        <span>Health</span>
-                    </div>
-                    <div class="action-item ripple">
-                        <div class="action-icon text-blue">
-                            <i class="fa-solid fa-umbrella"></i>
-                        </div>
-                        <span>Term Life</span>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Padding for bottom nav -->
-            <div style="height: 80px;"></div>
-        </main>
+        </div>
 
         <!-- Bottom Navigation -->
         <nav class="bottom-nav">
-            <div class="nav-item active">
+            <div class="nav-item active" data-target="home">
                 <i class="fa-solid fa-house"></i>
                 <span>Home</span>
             </div>
-            <div class="nav-item">
+            <div class="nav-item" data-target="stores">
                 <i class="fa-solid fa-store"></i>
                 <span>Stores</span>
             </div>
-            <div class="nav-item">
+            <div class="nav-item" data-target="home"> <!-- Using home for dummy tabs -->
                 <i class="fa-solid fa-shield-halved"></i>
                 <span>Insurance</span>
             </div>
-            <div class="nav-item">
+            <div class="nav-item" data-target="home">
                 <i class="fa-solid fa-indian-rupee-sign"></i>
                 <span>Wealth</span>
             </div>
-            <div class="nav-item">
+            <div class="nav-item" data-target="history">
                 <i class="fa-solid fa-clock-rotate-left"></i>
                 <span>History</span>
             </div>
@@ -195,13 +264,7 @@
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js')
-                    .then(registration => {
-                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                    })
-                    .catch(error => {
-                        console.log('ServiceWorker registration failed: ', error);
-                    });
+                navigator.serviceWorker.register('./sw.js');
             });
         }
     </script>
