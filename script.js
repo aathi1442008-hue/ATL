@@ -132,4 +132,64 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('UPI ID copied to clipboard: 9876543210@atl');
         });
     }
+
+    // 4. Settings Panel & Dark Mode Logic
+    const profileBtn = document.getElementById('profile-btn');
+    const settingsPanel = document.getElementById('settings-panel');
+    const closePanelBtn = document.getElementById('close-panel');
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+
+    if (profileBtn && settingsPanel) {
+        profileBtn.addEventListener('click', () => {
+            settingsPanel.classList.add('active');
+        });
+
+        closePanelBtn.addEventListener('click', () => {
+            settingsPanel.classList.remove('active');
+        });
+
+        // Dark Mode Toggle
+        darkModeToggle.addEventListener('change', (e) => {
+            if (e.target.checked) {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
+        });
+    }
+
+    // 5. QR Scanner Logic
+    const qrBtn = document.getElementById('qr-btn');
+    const qrScannerScreen = document.getElementById('qr-scanner');
+    const closeQrBtn = document.getElementById('close-qr');
+    const videoElem = document.getElementById('qr-video');
+    let stream = null;
+
+    if (qrBtn && qrScannerScreen) {
+        qrBtn.addEventListener('click', async () => {
+            // Show Scanner Screen
+            screens.forEach(screen => screen.classList.remove('active'));
+            qrScannerScreen.classList.add('active');
+
+            try {
+                stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
+                videoElem.srcObject = stream;
+            } catch (err) {
+                console.error("Error accessing camera: ", err);
+                alert("Camera access denied or unavailable.");
+            }
+        });
+
+        closeQrBtn.addEventListener('click', () => {
+            // Stop Camera
+            if (stream) {
+                stream.getTracks().forEach(track => track.stop());
+                videoElem.srcObject = null;
+            }
+            
+            // Go back to Home
+            screens.forEach(screen => screen.classList.remove('active'));
+            document.getElementById('home').classList.add('active');
+        });
+    }
 });

@@ -15,6 +15,17 @@
     --border-radius: 12px;
 }
 
+body.dark-mode {
+    --primary-color: #7c41bf;
+    --bg-color: #121212;
+    --surface-color: #1e1e1e;
+    --text-main: #ffffff;
+    --text-muted: #a0a0a0;
+    --border-color: #333333;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.5);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.6);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -591,6 +602,81 @@ body {
     font-size: 2rem;
     margin-bottom: 16px;
 }
+
+/* Settings Panel */
+.side-panel {
+    position: fixed;
+    top: 0; left: -100%;
+    width: 80%; max-width: 320px; height: 100%;
+    background: var(--surface-color);
+    z-index: 10000;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    transition: left 0.3s ease;
+    display: flex; flex-direction: column;
+}
+.side-panel.active { left: 0; }
+
+.panel-header {
+    background: var(--primary-color); color: white;
+    padding: 20px 16px;
+    display: flex; justify-content: space-between; align-items: flex-start;
+}
+.profile-summary { display: flex; align-items: center; gap: 12px; }
+.profile-summary img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.3); }
+.profile-summary h3 { font-size: 1.1rem; margin-bottom: 4px; }
+.profile-summary p { font-size: 0.8rem; opacity: 0.8; }
+.close-panel { font-size: 1.5rem; cursor: pointer; }
+
+.panel-body { padding: 16px 0; }
+.setting-item {
+    padding: 16px; border-bottom: 1px solid var(--border-color);
+    display: flex; justify-content: space-between; align-items: center;
+    cursor: pointer;
+}
+.setting-info { display: flex; align-items: center; gap: 16px; font-weight: 500; }
+.setting-info i { color: var(--text-muted); font-size: 1.2rem; width: 20px; text-align: center; }
+
+/* Toggle Switch */
+.switch { position: relative; display: inline-block; width: 44px; height: 24px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; }
+.slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .4s; }
+input:checked + .slider { background-color: var(--success-color); }
+input:checked + .slider:before { transform: translateX(20px); }
+.slider.round { border-radius: 24px; }
+.slider.round:before { border-radius: 50%; }
+
+/* QR Scanner */
+.scanner-container {
+    position: relative; width: 100%; height: 100vh; background: black;
+    display: flex; justify-content: center; align-items: center; overflow: hidden;
+}
+#qr-video { width: 100%; height: 100%; object-fit: cover; }
+.scanner-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    background: rgba(0,0,0,0.5); /* Dimmed background */
+}
+.scan-box {
+    width: 250px; height: 250px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    position: relative; box-shadow: 0 0 0 4000px rgba(0,0,0,0.6);
+    overflow: hidden;
+}
+.scan-box::before, .scan-box::after { content: ""; position: absolute; width: 40px; height: 40px; border-color: white; border-style: solid; }
+.scan-box::before { top: -2px; left: -2px; border-width: 4px 0 0 4px; border-radius: 20px 0 0 0; }
+.scan-box::after { bottom: -2px; right: -2px; border-width: 0 4px 4px 0; border-radius: 0 0 20px 0; }
+.scan-line {
+    width: 100%; height: 2px; background: #00ff00; position: absolute; top: 0; left: 0;
+    box-shadow: 0 0 10px #00ff00; animation: scan 2s linear infinite;
+}
+@keyframes scan {
+    0% { top: 0; }
+    50% { top: 100%; }
+    100% { top: 0; }
+}
+.scanner-overlay p { color: white; margin-top: 30px; font-size: 0.9rem; z-index: 10; }
 
 /* Desktop Emulator View */
 @media (min-width: 450px) {

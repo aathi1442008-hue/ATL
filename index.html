@@ -31,7 +31,7 @@
             <header class="app-header">
                 <div class="header-left">
                     <div class="profile-pic">
-                        <img src="https://ui-avatars.com/api/?name=User&background=ffffff&color=5f259f&rounded=true" alt="Profile">
+                        <img src="https://ui-avatars.com/api/?name=User&background=ffffff&color=5f259f&rounded=true" alt="Profile" id="profile-btn" style="cursor: pointer;">
                     </div>
                     <div class="location-info">
                         <span class="home-text">Home <i class="fa-solid fa-chevron-down"></i></span>
@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="header-right">
-                    <button class="icon-btn"><i class="fa-solid fa-qrcode"></i></button>
+                    <button class="icon-btn" id="qr-btn"><i class="fa-solid fa-qrcode"></i></button>
                     <button class="icon-btn"><i class="fa-regular fa-bell"></i><span class="badge"></span></button>
                     <button class="icon-btn"><i class="fa-regular fa-circle-question"></i></button>
                 </div>
@@ -206,6 +206,68 @@
                 </div>
                 <div style="height: 80px;"></div>
             </main>
+        </div>
+
+        <!-- ======================= QR SCANNER SCREEN ======================= -->
+        <div id="qr-scanner" class="screen" style="background: black; z-index: 200;">
+            <header class="app-header" style="background: transparent; position: absolute; width: 100%;">
+                <div class="header-left">
+                    <button class="icon-btn" id="close-qr" style="font-size: 1.5rem;"><i class="fa-solid fa-arrow-left"></i></button>
+                </div>
+                <div class="header-right">
+                    <button class="icon-btn"><i class="fa-regular fa-image"></i></button>
+                    <button class="icon-btn"><i class="fa-solid fa-bolt"></i></button>
+                </div>
+            </header>
+            <div class="scanner-container">
+                <video id="qr-video" autoplay playsinline></video>
+                <div class="scanner-overlay">
+                    <div class="scan-box">
+                        <div class="scan-line"></div>
+                    </div>
+                    <p>Align QR code within frame to scan</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================= SETTINGS PANEL ======================= -->
+        <div id="settings-panel" class="side-panel">
+            <div class="panel-header">
+                <div class="profile-summary">
+                    <img src="https://ui-avatars.com/api/?name=User&background=ffffff&color=5f259f&rounded=true" alt="Profile">
+                    <div>
+                        <h3>User Name</h3>
+                        <p>9876543210@atl</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-xmark close-panel" id="close-panel"></i>
+            </div>
+            <div class="panel-body">
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <i class="fa-solid fa-moon"></i>
+                        <span>Dark Mode</span>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="dark-mode-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <i class="fa-solid fa-building-columns"></i>
+                        <span>Bank Accounts</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <i class="fa-solid fa-circle-question"></i>
+                        <span>Help & Support</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </div>
         </div>
 
         <!-- ======================= PAYMENT MODAL ======================= -->
