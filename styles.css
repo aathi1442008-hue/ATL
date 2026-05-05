@@ -24,7 +24,7 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #e0e0e0; /* Darker background to simulate a phone frame area */
+    background-color: var(--bg-color);
     color: var(--text-main);
     display: flex;
     justify-content: center;
@@ -33,10 +33,9 @@ body {
 
 .app-container {
     width: 100%;
-    max-width: 414px; /* iPhone Max width */
+    max-width: 100%;
     background-color: var(--bg-color);
     position: relative;
-    box-shadow: var(--shadow-lg);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -308,7 +307,7 @@ body {
     position: fixed;
     bottom: 0;
     width: 100%;
-    max-width: 414px;
+    max-width: 100%;
     background-color: var(--surface-color);
     display: flex;
     justify-content: space-around;
@@ -371,4 +370,21 @@ body {
     transform: scale(0, 0);
     opacity: .1;
     transition: 0s;
+}
+
+/* Desktop Emulator View */
+@media (min-width: 450px) {
+    body {
+        background-color: #e0e0e0;
+    }
+    .app-container {
+        max-width: 414px;
+        box-shadow: var(--shadow-lg);
+        margin: 0 auto;
+    }
+    .bottom-nav {
+        max-width: 414px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
